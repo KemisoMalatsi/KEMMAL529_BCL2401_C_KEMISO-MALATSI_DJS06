@@ -1,7 +1,4 @@
-/* 
- **Name Lengths**: Create a new array using `map` that contains the length of each name.
- */
-
+//  Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
 
 // A list of provinces:
 const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
@@ -13,8 +10,13 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 // names.forEach((name) => console.log(name))
 
 // sort the name of the provinces
-provinces.sort();
-console.log(provinces)
+// provinces.sort();
+// console.log(provinces)
+
+// Remove the provinces containing "Cape"
+
+const newProvinces = provinces.filter(province => !province.includes("Cape"));
+console.log(newProvinces);
 
 // names.forEach((name, index) => {
 //   console.log(`${name} (${provinces[index]})`)
@@ -26,7 +28,7 @@ console.log(provinces)
 // console.log(uppercaseProvince);
 
 // Create a new array that contains the length of each name.
-const nameLength = names.map( names => console.log(names.length));
+// const nameLength = names.map( names => console.log(names.length));
 
 
 // A list of products with prices:
