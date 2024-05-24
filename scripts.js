@@ -14,9 +14,8 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 // console.log(provinces)
 
 // Remove the provinces containing "Cape"
-
-const newProvinces = provinces.filter(province => !province.includes("Cape"));
-console.log(newProvinces);
+// const newProvinces = provinces.filter(province => !province.includes("Cape"));
+// console.log(newProvinces);
 
 // names.forEach((name, index) => {
 //   console.log(`${name} (${provinces[index]})`)
@@ -29,6 +28,11 @@ console.log(newProvinces);
 
 // Create a new array that contains the length of each name.
 // const nameLength = names.map( names => console.log(names.length));
+
+// Create a boolean array indicating if each name contains the letter 'S'
+const containsS = names.map(name => name.split('').some(char => char.toLowerCase() === 's'));
+
+console.log(containsS);
 
 
 // A list of products with prices:
