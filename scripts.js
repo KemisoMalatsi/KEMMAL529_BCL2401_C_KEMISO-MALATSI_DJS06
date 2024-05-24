@@ -1,8 +1,6 @@
 /* 
- ****Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console
+ **Name Lengths**: Create a new array using `map` that contains the length of each name.
  */
-
-
 
 
 // A list of provinces:
@@ -20,8 +18,12 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 
 // create a new array of provinces with uppercase
 
-const uppercaseProvince = provinces.map(item => item.toUpperCase());
-console.log(uppercaseProvince);
+// const uppercaseProvince = provinces.map(item => item.toUpperCase());
+// console.log(uppercaseProvince);
+
+// Create a new array that contains the length of each name.
+const nameLength = names.map( names => console.log(names.length));
+
 
 // A list of products with prices:
 const products = [
