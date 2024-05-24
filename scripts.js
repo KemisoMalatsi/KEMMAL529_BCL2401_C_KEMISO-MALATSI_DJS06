@@ -33,8 +33,13 @@ const products = [
 
 // log each name and province to the console 
 provinces.forEach( (province) => console.log(province));
-names.forEach((name) => console.log(name))
+names.forEach((name) => console.log(name));
 
+names.forEach((name, index) => {
+  console.log(`${name} (${provinces[index]})`)
+})
+
+/*
 // sort the name of the provinces
 provinces.sort();
 console.log(provinces)
@@ -42,9 +47,7 @@ console.log(provinces)
 // Remove the provinces containing "Cape"
 console.log(newProvinces);
 
-names.forEach((name, index) => {
-  console.log(`${name} (${provinces[index]})`)
-})
+
 
 // create a new array of provinces with uppercase
 
@@ -100,4 +103,4 @@ console.log(
     ])
   )
 );
-
+*/
