@@ -39,37 +39,36 @@ names.forEach((name, index) => {
   console.log(`${name} (${provinces[index]})`)
 })
 
-/*
-// sort the name of the provinces
-provinces.sort();
-console.log(provinces)
-
-// Remove the provinces containing "Cape"
-console.log(newProvinces);
-
-
-
 // create a new array of provinces with uppercase
-
 const uppercaseProvince = provinces.map(item => item.toUpperCase());
 console.log(uppercaseProvince);
 
 // Create a new array that contains the length of each name.
 const nameLength = names.map( names => console.log(names.length));
 
+// sort the name of the provinces
+provinces.sort();
+console.log(provinces)
+
+// Remove the provinces containing "Cape"
+const nonCape = provinces.filter( (province) => !province.includes("Cape"))
+console.log(nonCape);
+
 // Create a boolean array indicating if each name contains the letter 'S'
-const containsS = names.map(name => name.split('').some(char => char.toLowerCase() === 's'));
+const hasS = names.map((name) => {
+  return name
+    .split('')
+    .some( (letter) => letter === 's');
+})
+console.log(hasS);
 
-console.log(containsS);
-
-const nameProvinceMapping = names.reduce((acc, name, index) => {
-  acc[name] = provinces[index];
-  return acc;
+const nameProvinceMap = names.reduce((map, name, index) => {
+  map[name] = provinces[index] ||  'Unknown';
+  return map;
 }, {});
+ 
 
-// console.log(nameProvinceMapping);
-
-
+// Single `console.log` Execution
 
 
 console.log(
@@ -103,4 +102,4 @@ console.log(
     ])
   )
 );
-*/
+
