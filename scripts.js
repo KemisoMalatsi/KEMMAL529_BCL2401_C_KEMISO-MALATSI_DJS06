@@ -1,9 +1,35 @@
 //  Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
 
 // A list of provinces:
-const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
+const provinces = [
+  'Western Cape', 
+  'Gauteng', 
+  'Northern Cape', 
+  'Eastern Cape', 
+  'KwaZulu-Natal', 
+  'Free State'
+];
+
+
 // A list of names:
-const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']; 
+const names = [
+  'Ashwin', 
+  'Sibongile', 
+  'Jan-Hendrik', 
+  'Sifso', 
+  'Shailen', 
+  'Frikkie'
+]; 
+
+// A list of products with prices:
+const products = [
+  { product: 'banana',  price: "2" },
+  { product: 'mango',   price: 6 },
+  { product: 'potato',  price: ' ' },
+  { product: 'avocado', price: "8" },
+  { product: 'coffee',  price: 10 },
+  { product: 'tea',     price: '' },
+]
 
 // log each name and province to the console 
 provinces.forEach( (province) => console.log(province));
@@ -41,49 +67,37 @@ const nameProvinceMapping = names.reduce((acc, name, index) => {
 // console.log(nameProvinceMapping);
 
 
-// A list of products with prices:
-const products = [
-  { product: 'banana',  price: "2" },
-  { product: 'mango',   price: 6 },
-  { product: 'potato',  price: ' ' },
-  { product: 'avocado', price: "8" },
-  { product: 'coffee',  price: 10 },
-  { product: 'tea',     price: '' },
-]
+
 
 console.log(
-  // products
-  products.map(product => product.product).join(', '),
+  // logging products
+  products.map((p) => p.product.length <= 5),
 
-  // Filter by name Length
-  products.filter(product => product.name.length <= 5),
+  // filter name lengths
+  products.filter((p) => p.product.length <= 5),
 
-  // Price Manipulation
-  products
-    .filter(product => product.price.trim() !== '')
-    .map(product => parseFloat(product.price))
-    .reduce((acc, price) => acc + price, 0),
+  // manipulate price
+  "Total price:" +
+    products
+      .filter((p) => p.price && !isNaN(p.price))
+      .reduce((sum, p) => sum + Number(p.price), 0),
 
-  // Concatenate Product Names
-  products.reduce((acc, product) => acc + product.product + ', ', '').slice(0,-2),
+  // combine arrays for product names
+  products.reduce((str, p) => str + p.product, ""),
 
-  // Find extremes in prices
-  (() => {
-    const extremes = products.reduce((acc, product) => {
-      const price = parseFloat(product.price);
-      if (!isNaN(price)){
-        if (price > acc.highest) acc.highest = price;
-        if (price < acc.lowest) acc.lowest = price;
-      }
-      return acc;
-    }, { highest: -Infinity, lowest: Infinity });
-    return `Highest: $${extreme.highest}. Lowest: $${extremes.lowest}.`;
-    })(),
+  // find prices that are extreme
+  // Use Infinity for empty prices
+  "Highest: " +
+    Math.max(...products.map((p) => Number(p.price) || -Infinity)) +
+    ". Lowest: " +
+    Math.min(...products.map((p) => Number(p.price) || Infinity)),
 
-  // Object Transformation
-  products.reduce((acc, { product, price }) => {
-    acc[product] = { name: product, cost: parseFloat(price) };
-    return acc;
-  }, {})
+  // Transformation Object
+  Object.fromEntries(
+    Object.entries(products).map(([key, { product, price }]) => [
+      key,
+      { name: product, cost: price },
+    ])
+  )
 );
 
