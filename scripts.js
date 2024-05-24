@@ -12,6 +12,10 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 // provinces.forEach( (province) => console.log(province));
 // names.forEach((name) => console.log(name))
 
+// sort the name of the provinces
+provinces.sort();
+console.log(provinces)
+
 // names.forEach((name, index) => {
 //   console.log(`${name} (${provinces[index]})`)
 // })
