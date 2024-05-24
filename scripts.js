@@ -1,5 +1,5 @@
 /* 
- **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
+ ****Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console
  */
 
 
@@ -11,12 +11,17 @@ const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', '
 const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']; 
 
 // log each name and province to the console 
-provinces.forEach( (province) => console.log(province));
-names.forEach((name) => console.log(name))
+// provinces.forEach( (province) => console.log(province));
+// names.forEach((name) => console.log(name))
 
-names.forEach((name, index) => {
-  console.log(`${name} (${provinces[index]})`)
-})
+// names.forEach((name, index) => {
+//   console.log(`${name} (${provinces[index]})`)
+// })
+
+// create a new array of provinces with uppercase
+
+const uppercaseProvince = provinces.map(item => item.toUpperCase());
+console.log(uppercaseProvince);
 
 // A list of products with prices:
 const products = [
