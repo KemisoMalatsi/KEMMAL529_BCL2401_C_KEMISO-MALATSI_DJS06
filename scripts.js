@@ -30,9 +30,16 @@ const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikki
 // const nameLength = names.map( names => console.log(names.length));
 
 // Create a boolean array indicating if each name contains the letter 'S'
-const containsS = names.map(name => name.split('').some(char => char.toLowerCase() === 's'));
+// const containsS = names.map(name => name.split('').some(char => char.toLowerCase() === 's'));
 
-console.log(containsS);
+// console.log(containsS);
+
+const nameProvinceMapping = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+
+console.log(nameProvinceMapping);
 
 
 // A list of products with prices:
